@@ -2,11 +2,14 @@ package com.dragon.edu.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -29,6 +32,7 @@ public class Teacher implements Serializable {
 
     @ApiModelProperty(value = "ID")
     @TableId(value = "id", type = IdType.AUTO)
+    @JsonIgnore
     private Integer id;
 
     @ApiModelProperty(value = "名字")
