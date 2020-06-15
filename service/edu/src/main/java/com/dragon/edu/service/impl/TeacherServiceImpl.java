@@ -1,9 +1,9 @@
-package com.dragon.service.impl;
+package com.dragon.edu.service.impl;
 
-import com.dragon.entity.Teacher;
-import com.dragon.mapper.TeacherMapper;
-import com.dragon.service.TeacherService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.dragon.edu.entity.Teacher;
+import com.dragon.edu.mapper.TeacherMapper;
+import com.dragon.edu.service.TeacherService;
 import org.springframework.stereotype.Service;
 
 /**

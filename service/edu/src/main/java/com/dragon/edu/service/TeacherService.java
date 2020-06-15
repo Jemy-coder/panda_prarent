@@ -1,7 +1,7 @@
-package com.dragon.service;
+package com.dragon.edu.service;
 
-import com.dragon.entity.Teacher;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.dragon.edu.entity.Teacher;
 
 /**
  * <p>

@@ -1,13 +1,12 @@
-package com.dragon.controller;
+package com.dragon.edu.controller;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.dragon.entity.Teacher;
-import com.dragon.service.TeacherService;
+import com.dragon.edu.entity.Teacher;
+import com.dragon.edu.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;

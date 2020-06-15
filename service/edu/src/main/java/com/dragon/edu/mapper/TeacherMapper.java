@@ -1,7 +1,7 @@
-package com.dragon.mapper;
+package com.dragon.edu.mapper;
 
-import com.dragon.entity.Teacher;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.dragon.edu.entity.Teacher;
 
 /**
  * <p>

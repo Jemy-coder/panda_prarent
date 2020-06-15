@@ -1,4 +1,4 @@
-package com.dragon.config;
+package com.dragon.edu.config;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Configuration;
@@ -8,6 +8,6 @@ import org.springframework.context.annotation.Configuration;
  * @date 2020/06/14 : 22:09
  **/
 @Configuration
-@MapperScan("com.dragon.mapper")
+@MapperScan("com.dragon.edu.mapper")
 public class EduServiceConfig {
 }
