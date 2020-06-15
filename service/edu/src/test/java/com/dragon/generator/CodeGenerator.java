@@ -2,13 +2,18 @@ package com.dragon.generator;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
+import com.baomidou.mybatisplus.generator.InjectionConfig;
 import com.baomidou.mybatisplus.generator.config.*;
+import com.baomidou.mybatisplus.generator.config.po.TableInfo;
 import com.baomidou.mybatisplus.generator.config.rules.DateType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * @author JEMY
@@ -50,11 +55,36 @@ public class CodeGenerator {
         PackageConfig pc = new PackageConfig();
         //pc.setModuleName("edu"); //模块名
         pc.setParent("com.dragon");
-        pc.setController("controller");
-        pc.setEntity("entity");
-        pc.setService("service");
-        pc.setMapper("mapper");
+       // pc.setController("controller");
+        //pc.setEntity("entity");
+       // pc.setService("service");
+        //pc.setMapper("mapper");
         mpg.setPackageInfo(pc);
+
+        // 如果模板引擎是 freemarker
+        //String templatePath = "/templates/mapper.xml.ftl";
+        // 如果模板引擎是 velocity
+        String templatePath = "/templates/mapper.xml.vm";
+
+        // 自定义配置
+        InjectionConfig cfg = new InjectionConfig() {
+            @Override
+            public void initMap() {
+                // to do nothing
+            }
+        };
+        List<FileOutConfig> focList = new ArrayList<>();
+        focList.add(new FileOutConfig(templatePath) {
+            @Override
+            public String outputFile(TableInfo tableInfo) {
+                // 自定义输入文件名称
+                return projectPath + "/src/main/resources/mapper/"
+                         + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
+            }
+        });
+        cfg.setFileOutConfigList(focList);
+        mpg.setCfg(cfg);
+        mpg.setTemplate(new TemplateConfig().setXml(null));
 
 
 

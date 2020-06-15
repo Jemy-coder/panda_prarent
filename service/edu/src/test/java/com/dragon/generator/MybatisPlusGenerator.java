@@ -70,6 +70,11 @@ public class MybatisPlusGenerator {
         pc.setService("%sService");//设置生成的service名
         mpg.setPackageInfo(pc);
 
+        // 如果模板引擎是 freemarker
+        //String templatePath = "/templates/mapper.xml.ftl";
+        // 如果模板引擎是 velocity
+        String templatePath = "/templates/mapper.xml.vm";
+
         // 自定义配置
         InjectionConfig cfg = new InjectionConfig() {
             @Override
@@ -78,7 +83,7 @@ public class MybatisPlusGenerator {
             }
         };
         List<FileOutConfig> focList = new ArrayList<>();
-        focList.add(new FileOutConfig("/templates/mapper.xml.ftl") {
+        focList.add(new FileOutConfig(templatePath) {
             @Override
             public String outputFile(TableInfo tableInfo) {
                 // 自定义输入文件名称
