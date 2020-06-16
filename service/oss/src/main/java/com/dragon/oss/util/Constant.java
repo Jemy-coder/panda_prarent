@@ -1,4 +1,4 @@
-package com.dragon.util;
+package com.dragon.oss.util;
 
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Value;

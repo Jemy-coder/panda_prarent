@@ -3,7 +3,7 @@ package com.dragon.oss.service.impl;
 import com.aliyun.oss.OSS;
 import com.aliyun.oss.OSSClientBuilder;
 import com.dragon.oss.service.OssService;
-import com.dragon.util.Constant;
+import com.dragon.oss.util.Constant;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
