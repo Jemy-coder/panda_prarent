@@ -1,6 +1,8 @@
 package com.dragon.edu.entity;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -30,6 +32,8 @@ public class Teacher implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    private static final String DATE_FORMAT= "yyyy-MM-dd HH:mm:ss";
+
     @ApiModelProperty(value = "ID")
     @TableId(value = "id", type = IdType.AUTO)
     @JsonIgnore
@@ -44,10 +48,14 @@ public class Teacher implements Serializable {
     @ApiModelProperty(value = "学校")
     private String school;
 
-    @ApiModelProperty(value = "创建时间")
+    @ApiModelProperty(value = "创建时间",example = "2020-06-16 13:13:45")
+    @JsonFormat(pattern = DATE_FORMAT)
+    @TableField(fill = FieldFill.INSERT)
     private Date createTime;
 
-    @ApiModelProperty(value = "更新时间")
+    @ApiModelProperty(value = "更新时间",example = "2020-06-16 13:13:45")
+    @JsonFormat(pattern = DATE_FORMAT)
+    @TableField(fill = FieldFill.INSERT_UPDATE)
     private Date updateTime;
 
 
