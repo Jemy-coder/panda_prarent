@@ -2,10 +2,7 @@ package com.dragon.oss.controller;
 
 import com.dragon.oss.service.OssService;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
@@ -27,9 +24,9 @@ public class OssController {
         return ossService.uploadFile(file);
     }
 
-    @ApiOperation("测试接口")
-    @GetMapping
-    public String hello(String name){
+    @ApiOperation("微服务调用接口")
+    @GetMapping("hello")
+    public String hello(@RequestParam("name") String name){
         return "hello: "+name;
     }
 

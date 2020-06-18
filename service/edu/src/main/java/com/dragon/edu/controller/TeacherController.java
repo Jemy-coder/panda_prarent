@@ -3,6 +3,7 @@ package com.dragon.edu.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
+import com.dragon.edu.client.OssRemoteClient;
 import com.dragon.edu.entity.Teacher;
 import com.dragon.edu.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,9 @@ public class TeacherController {
 
     @Autowired
     private TeacherService teacherService;
+
+    @Autowired
+    private OssRemoteClient ossRemoteClient;
 
     @PostMapping("create")
     public String create(@RequestBody Teacher teacher){
@@ -49,6 +53,11 @@ public class TeacherController {
     public List<Teacher> list(){
         QueryWrapper<Teacher> queryWrapper = new QueryWrapper<>();
         return teacherService.list(queryWrapper);
+    }
+
+    @GetMapping("callOssHello")
+    public String callOssHello(@RequestParam String name){
+        return ossRemoteClient.hello(name);
     }
 
 }
